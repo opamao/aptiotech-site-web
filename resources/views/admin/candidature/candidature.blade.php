@@ -1,7 +1,7 @@
 @extends('admin.layouts.master', [
-    'titre' => 'Acceuil Slide',
-    'nomPage' => 'Slide',
-    'descriPage' => "Permet d'afficher l'image en grand sur la page d'accueil",
+    'titre' => 'Candidature',
+    'nomPage' => 'Candidatures',
+    'descriPage' => "Tous ceux qui sont intéressés par l'entreprise",
 ])
 
 @push('scripts')
@@ -21,7 +21,8 @@
                                 <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span
                                         class="path1"></span><span class="path2"></span></i>
                                 <input type="text" data-kt-user-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-13" placeholder="Chercher slide" />
+                                    class="form-control form-control-solid w-250px ps-13"
+                                    placeholder="Chercher candidature" />
                             </div>
                         </div>
 
@@ -63,113 +64,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#kt_modal_add_user">
-                                    <i class="ki-duotone ki-plus fs-2"></i> Ajouter slide
-                                </button>
                             </div>
                             <div class="d-flex justify-content-end align-items-center d-none"
                                 data-kt-user-table-toolbar="selected">
                                 <button type="button" class="btn btn-danger" data-kt-user-table-select="delete_selected">
                                     Delete Selected
                                 </button>
-                            </div>
-
-                            <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered mw-650px">
-                                    <div class="modal-content">
-                                        <div class="modal-header" id="kt_modal_add_user_header">
-                                            <h2 class="fw-bold">Add User</h2>
-                                            <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                                data-kt-users-modal-action="close" data-bs-dismiss="modal">
-                                                <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
-                                                        class="path2"></span></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-body px-5 my-7">
-                                            <form id="kt_modal_add_user_form" class="form" action="list.html#">
-                                                <div class="d-flex flex-column scroll-y px-5 px-lg-10"
-                                                    id="kt_modal_add_user_scroll" data-kt-scroll="true"
-                                                    data-kt-scroll-activate="true" data-kt-scroll-max-height="auto"
-                                                    data-kt-scroll-dependencies="#kt_modal_add_user_header"
-                                                    data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
-                                                    data-kt-scroll-offset="300px">
-                                                    <div class="fv-row mb-7">
-                                                        <label class="d-block fw-semibold fs-6 mb-5">Avatar</label>
-                                                        <style>
-                                                            .image-input-placeholder {
-                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image.svg');
-                                                            }
-
-                                                            [data-bs-theme="dark"] .image-input-placeholder {
-                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image-dark.svg');
-                                                            }
-                                                        </style>
-                                                        <div class="image-input image-input-outline image-input-placeholder"
-                                                            data-kt-image-input="true">
-                                                            <div class="image-input-wrapper w-125px h-125px"
-                                                                style="background-image: url(https://preview.keenthemes.com/keen/demo3/assets/media/avatars/300-6.jpg);">
-                                                            </div>
-                                                            <label
-                                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                                data-kt-image-input-action="change" data-bs-toggle="tooltip"
-                                                                title="Change avatar">
-                                                                <i class="ki-duotone ki-pencil fs-7"><span
-                                                                        class="path1"></span><span
-                                                                        class="path2"></span></i>
-                                                                <input type="file" name="avatar"
-                                                                    accept=".png, .jpg, .jpeg" />
-                                                                <input type="hidden" name="avatar_remove" />
-                                                            </label>
-                                                            <span
-                                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                                data-kt-image-input-action="cancel"
-                                                                data-bs-toggle="tooltip" title="Cancel avatar">
-                                                                <i class="ki-duotone ki-cross fs-2"><span
-                                                                        class="path1"></span><span
-                                                                        class="path2"></span></i>
-                                                            </span>
-                                                            <span
-                                                                class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                                data-kt-image-input-action="remove"
-                                                                data-bs-toggle="tooltip" title="Remove avatar">
-                                                                <i class="ki-duotone ki-cross fs-2"><span
-                                                                        class="path1"></span><span
-                                                                        class="path2"></span></i>
-                                                            </span>
-                                                        </div>
-                                                        <div class="form-text">Allowed file types:
-                                                            png, jpg, jpeg.</div>
-                                                    </div>
-                                                    <div class="fv-row mb-7">
-                                                        <label class="required fw-semibold fs-6 mb-2">Full
-                                                            Name</label>
-                                                        <input type="text" name="user_name"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="Full name" value="Emma Smith" />
-                                                    </div>
-                                                    <div class="fv-row mb-7">
-                                                        <label class="required fw-semibold fs-6 mb-2">Email</label>
-                                                        <input type="email" name="user_email"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="example@domain.com" value="smith@kpmg.com" />
-                                                    </div>
-                                                </div>
-                                                <div class="text-center pt-10">
-                                                    <button type="reset" class="btn btn-light me-3"
-                                                        data-bs-dismiss="modal">
-                                                        Annuler
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Soumettre
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -178,52 +78,160 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                             <thead>
                                 <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">User</th>
-                                    <th class="min-w-125px">Role</th>
-                                    <th class="min-w-125px">Last login</th>
-                                    <th class="min-w-125px">Two-step </th>
-                                    <th class="min-w-125px">Joined Date</th>
+                                    <th class="min-w-125px">Nom</th>
+                                    <th class="min-w-125px">E-mail</th>
+                                    <th class="min-w-125px">Github</th>
+                                    <th class="min-w-125px">Linkedin</th>
                                     <th class="text-end min-w-100px"></th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
                                 <tr>
                                     <td class="d-flex align-items-center">
-                                        <!--begin:: Avatar -->
-                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                            <a href="view.html">
-                                                <div class="symbol-label">
-                                                    <img src="https://preview.keenthemes.com/keen/demo3/assets/media/avatars/300-6.jpg"
-                                                        alt="Emma Smith" class="w-100" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!--end::Avatar-->
-                                        <!--begin::User details-->
                                         <div class="d-flex flex-column">
-                                            <a href="view.html" class="text-gray-800 text-hover-primary mb-1">Emma
+                                            <a href="#" class="text-gray-800 text-hover-primary mb-1">Emma
                                                 Smith</a>
-                                            <span>smith@kpmg.com</span>
                                         </div>
-                                        <!--begin::User details-->
                                     </td>
-                                    <td>
-                                        Administrator </td>
-                                    <td>
-                                        <div class="badge badge-light fw-bold">Yesterday</div>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                        05 May 2024, 10:30 am </td>
-                                    <td class="text-end">
-                                        <button type="button" class="btn btn-primary">
-                                            <i class="ki-duotone ki-eye fs-2"></i>
+                                    <td>Directeur Technique </td>
+                                    <td>Directeur Technique </td>
+                                    <td>Directeur Technique </td>
+                                    <td class="">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#at_view">
+                                            <i class="bi bi-eye fs-1x text-white">
+                                            </i>
                                         </button>
+                                        <div class="modal fade" id="at_view" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered mw-650px">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" id="kt_modal_add_user_header">
+                                                        <h2 class="fw-bold">Détails</h2>
+                                                        <div class="btn btn-icon btn-sm btn-active-icon-primary"
+                                                            data-kt-users-modal-action="close" data-bs-dismiss="modal">
+                                                            <i class="ki-duotone ki-cross fs-1"><span
+                                                                    class="path1"></span><span class="path2"></span></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-body px-5 my-7">
+                                                        <form class="form">
+                                                            <div class="d-flex flex-column scroll-y px-5 px-lg-10"
+                                                                id="kt_modal_add_user_scroll" data-kt-scroll="true"
+                                                                data-kt-scroll-activate="true"
+                                                                data-kt-scroll-max-height="auto"
+                                                                data-kt-scroll-dependencies="#kt_modal_add_user_header"
+                                                                data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
+                                                                data-kt-scroll-offset="300px">
+                                                                <div class="fv-row mb-7">
+                                                                    <label class="d-block fw-semibold fs-6 mb-5">CV</label>
+                                                                    <div class="image-input image-input-outline image-input-placeholder"
+                                                                        data-kt-image-input="true">
+                                                                        <div class="image-input-wrapper w-125px h-125px"
+                                                                            style="background-image: url({{ asset('back') }}/assets/media/svg/files/pdf.svg );">
+                                                                        </div>
+                                                                        <div class="image-input-wrapper w-125px h-125px"
+                                                                            style="background-image: url({{ asset('back') }}/assets/media/svg/files/doc.svg );">
+                                                                        </div>
+                                                                        <label
+                                                                            class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                                            data-kt-image-input-action="change"
+                                                                            data-bs-toggle="tooltip" title="Télécharger">
+                                                                            <i class="bi bi-download fs-7"><span
+                                                                                    class="path1"></span><span
+                                                                                    class="path2"></span></i>
+                                                                            <input required type="file" name="avatar"
+                                                                                accept=".png, .jpg, .jpeg" />
+                                                                            <input type="hidden" name="avatar_remove" />
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="fv-row mb-7 col-md-6">
+                                                                        <label
+                                                                            class="required fw-semibold fs-6 mb-2">Nom</label>
+                                                                        <p>nom</p>
+                                                                    </div>
+                                                                    <div class="fv-row mb-7 col-md-6">
+                                                                        <label
+                                                                            class="required fw-semibold fs-6 mb-2">E-mail</label>
+                                                                        <p>email</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="fv-row mb-7 col-md-6">
+                                                                        <label class="fw-semibold fs-6 mb-2">Github</label>
+                                                                        <p><a target="_blank" href="#">github</a>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="fv-row mb-7 col-md-6">
+                                                                        <label
+                                                                            class="fw-semibold fs-6 mb-2">Linkedin</label>
+                                                                        <p><a target="_blank" href="#">linkedin</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="fv-row mb-7">
+                                                                    <label class="fw-semibold fs-6 mb-2">Message</label>
+                                                                    <p>contenu</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-center pt-10">
+                                                                <button type="reset" class="btn btn-light me-3"
+                                                                    data-bs-dismiss="modal">
+                                                                    Compris
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_add_user">
-                                            <i class="ki-duotone ki-trash fs-2"></i>
+                                            data-bs-target="#at_delete">
+                                            <i class="bi bi-trash fs-1x text-white">
+                                            </i>
                                         </button>
+                                        <div class="modal fade" id="at_delete" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered mw-650px">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" id="at_delete">
+                                                        <h2 class="fw-bold text-danger">Suppression</h2>
+                                                        <div class="btn btn-icon btn-sm btn-active-icon-primary"
+                                                            data-kt-users-modal-action="close" data-bs-dismiss="modal">
+                                                            <i class="ki-duotone ki-cross fs-1" style="color: red"><span
+                                                                    class="path1"></span><span class="path2"></span></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-body px-5 my-7">
+                                                        <form class="form" action="#" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <div class="d-flex flex-column scroll-y px-5 px-lg-10"
+                                                                id="kt_modal_add_user_scroll" data-kt-scroll="true"
+                                                                data-kt-scroll-activate="true"
+                                                                data-kt-scroll-max-height="auto"
+                                                                data-kt-scroll-offset="300px">
+                                                                <div class="fv-row mb-7">
+                                                                    <h3 class="text-primary">Êtes-vous sûr de vouloir
+                                                                        supprimer ?</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-center pt-10">
+                                                                <button type="reset" class="btn btn-light me-3"
+                                                                    data-bs-dismiss="modal">
+                                                                    Annuler
+                                                                </button>
+                                                                <button type="submit" class="btn btn-danger">
+                                                                    Supprimer
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

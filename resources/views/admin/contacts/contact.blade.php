@@ -195,10 +195,9 @@
                                                             <div class="row g-5 g-lg-9">
                                                                 <div class="col-6">
                                                                     <div class="card card-shadow">
-                                                                        <div class="card-body p-0">
+                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                                                             <i
                                                                                 class="bi bi-send fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
                                                                             <div class="fw-bold fs-5 pt-4">
                                                                                 E-mail </div>
                                                                             <span>Subscriptions</span>
@@ -207,10 +206,9 @@
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="card card-shadow">
-                                                                        <div class="card-body p-0">
+                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                                                             <i
                                                                                 class="bi bi-phone fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
                                                                             <div class="fw-bold fs-5 pt-4">
                                                                                 Téléphone </div>
                                                                             <span>Subscriptions</span>
@@ -219,23 +217,20 @@
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="card card-shadow">
-                                                                        <div class="card-body p-0">
+                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                                                             <i
                                                                                 class="bi bi-calendar fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
                                                                             <div class="fw-bold fs-5 pt-4">
                                                                                 Date </div>
                                                                             <span>Subscriptions</span>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <div class="card card-shadow">
-                                                                        <div class="card-body p-0">
+                                                                    <div class="card card-shadow ">
+                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
                                                                             <i
                                                                                 class="bi bi-map fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
                                                                             <div class="fw-bold fs-5 pt-4">
                                                                                 Localisation </div>
                                                                             <span>Subscriptions</span>

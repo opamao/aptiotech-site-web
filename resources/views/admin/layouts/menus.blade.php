@@ -73,7 +73,7 @@
                             Nos clients</span></a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('equipe') ? 'active' : '' }}" href="{{ url('equipes') }}"><span
+                    <a class="menu-link {{ Request::is('equipes') ? 'active' : '' }}" href="{{ url('equipes') }}"><span
                             class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                             class="menu-title">Équipes</span></a>
                 </div>
@@ -89,7 +89,7 @@
                 </div>
                 <br><br><br>
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ url('sign-in') }}">
+                    <a class="menu-link" href="{{ url('aptiotech') }}">
                         <span class="menu-icon"><i class="ki-duotone ki-entrance-right fs-3" style="color: red">
                                 <span class="path1"></span><span class="path2"></span></i>
                         </span>

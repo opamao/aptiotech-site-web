@@ -44,6 +44,7 @@
                                                     data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
                                                     data-kt-scroll-offset="300px">
                                                     <div class="fv-row mb-7">
+                                                        <div class="form-text">1920 x 800 px</div>
                                                         <style>
                                                             .image-input-placeholder {
                                                                 background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image.svg');

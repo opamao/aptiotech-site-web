@@ -132,7 +132,7 @@
                             </div>
 
                             <div class="menu-item px-5">
-                                <a href="{{ url('sign-in') }}" class="menu-link px-5" style="color: red">
+                                <a href="{{ url('aptiotech') }}" class="menu-link px-5" style="color: red">
                                     Se déconnecter
                                 </a>
                             </div>
