@@ -33,3 +33,27 @@ Route::get('aptiotech', function () {
 Route::get('reset', function () {
     return view('admin.auth.reset');
 });
+Route::get('dashboard', function () {
+    return view('admin.dashboard.dash');
+});
+Route::get('footer', function () {
+    return view('admin.footer.footer');
+});
+Route::get('candidature', function () {
+    return view('admin.candidature.candidature');
+});
+Route::get('equipes', function () {
+    return view('admin.equipe.equipe');
+});
+Route::get('clients', function () {
+    return view('admin.clients.clients');
+});
+Route::get('slide', function () {
+    return view('admin.accueil.slide');
+});
+Route::get('contacts', function () {
+    return view('admin.contacts.contact');
+});
+Route::get('messages', function () {
+    return view('admin.contacts.message');
+});

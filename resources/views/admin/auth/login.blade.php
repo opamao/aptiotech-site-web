@@ -52,7 +52,7 @@
             <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10">
                 <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                     <div class="w-lg-500px p-10">
-                        <form class="form w-100" action="#" method="POST">
+                        <form class="form w-100" action="{{ url('dashboard') }}" method="GET">
                             @csrf
                             <div class="text-center mb-11">
                                 <h1 class="text-gray-900 fw-bolder mb-3">
