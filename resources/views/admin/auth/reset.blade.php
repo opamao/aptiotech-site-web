@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!--begin::Head-->
 
 <head>
     <title>AptioTech - Mot de passe oublie</title>
@@ -10,7 +9,6 @@
     <link rel="shortcut icon" href="{{ asset('back') }}/assets/media/logos/favicon.ico" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,500,600,700" />
-    <!--end::Fonts-->
 
     <link href="{{ asset('back') }}/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back') }}/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -71,54 +69,17 @@
                                 <button type="submit" class="btn btn-primary me-4">Réinitialiser</button>
                                 <a href="{{ url('aptiotech') }}" class="btn btn-light">Annuler</a>
                             </div>
-                            <!--end::Actions-->
                         </form>
-                        <!--end::Form-->
                     </div>
-                    <!--end::Wrapper-->
                 </div>
-                <!--end::Form-->
-
-                <!--begin::Footer-->
-                <div class="d-flex flex-center flex-wrap px-5">
-                    <!--begin::Links-->
-                    <div class="d-flex fw-semibold text-primary fs-base">
-                        <a href="https://keenthemes.com" class="px-5" target="_blank">Terms</a>
-
-                        <a href="https://devs.keenthemes.com" class="px-5" target="_blank">Plans</a>
-
-                        <a href="https://themes.getbootstrap.com/product/keen-the-ultimate-bootstrap-admin-theme/"
-                            class="px-5" target="_blank">Contact Us</a>
-                    </div>
-                    <!--end::Links-->
-                </div>
-                <!--end::Footer-->
             </div>
-            <!--end::Body-->
         </div>
-        <!--end::Authentication - Password reset-->
-
-
-
     </div>
-    <!--end::Root-->
 
-    <!--begin::Javascript-->
-    <script>
-        var hostUrl = "/keen/demo3/assets/";
-    </script>
-
-    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
     <script src="{{ asset('back') }}/assets/plugins/global/plugins.bundle.js"></script>
     <script src="{{ asset('back') }}/assets/js/scripts.bundle.js"></script>
-    <!--end::Global Javascript Bundle-->
 
-
-    <!--begin::Custom Javascript(used for this page only)-->
     <script src="{{ asset('back') }}/assets/js/custom/authentication/reset-password/reset-password.js"></script>
-    <!--end::Custom Javascript-->
-    <!--end::Javascript-->
 </body>
-<!--end::Body-->
 
 </html>
