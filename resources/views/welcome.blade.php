@@ -4,7 +4,7 @@
 @section('content')
     <!-- Hero Start -->
     <div class="section blusion-hero-section d-flex align-items-center"
-        style="background-image: url(assets/images/hero.jpg);">
+        style="background-image: url({{ asset('slides') . '/' . $slide->image_slide }});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-7 col-sm-9">
@@ -169,56 +169,25 @@
         <br>
         <br>
         <div class="container">
-            <!-- Brand Wrapper Start -->
             <div class="brand-wrapper text-center">
-                <!-- Brand Active Start -->
                 <div class="brand-active">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-1.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-2.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-3.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-4.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-5.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
-                            <!-- Single Brand Start -->
-                            <div class="swiper-slide single-brand">
-                                <img src="assets/images/brand/brand-2.png" alt="Brand">
-                            </div>
-                            <!-- Single Brand End -->
+                            @foreach ($client as $listClient)
+                                <div class="swiper-slide single-brand">
+                                    <img src="{{ asset('clients') . '/' . $listClient->image_cli }}" alt="Brand">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                <!-- Brand Active End -->
             </div>
-            <!-- Brand Wrapper End -->
         </div>
         <br>
         <br>
         <br>
     </div>
-    <!-- Brand Logo End -->
     <br>
-    <!-- Subscribe Start -->
     <div class="section blusion-subscribe-section">
         <div class="container">
             <div class="subscribe-wrap">

@@ -45,8 +45,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">E-mail</h5>
-                                            <p>info@aptiotech.com</p>
-                                            <p>contact@aptiotech.com</p>
+                                            <p>{{ $contact->email_cont }}</p>
                                         </div>
                                     </div>
                                     <!--Single Contact Info End -->
@@ -59,8 +58,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Contacts</h5>
-                                            <p>+(225) 0585831647</p>
-                                            <p>+(225) 0710848785</p>
+                                            <p>{{ $contact->phone_cont }}</p>
                                         </div>
                                     </div>
                                     <!--Single Contact Info End -->
@@ -73,7 +71,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Date</h5>
-                                            <p>Lun-Vend 09h à 18h</p>
+                                            <p>{{ $contact->travail_cont }}</p>
                                         </div>
                                     </div>
                                     <!--Single Contact Info End -->
@@ -86,7 +84,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Localisation</h5>
-                                            <p>Marcory résidentiel, radio zénith</p>
+                                            <p>{{ $contact->local_cont }}</p>
                                         </div>
                                     </div>
                                     <!--Single Contact Info End -->
@@ -100,13 +98,13 @@
                         <div class="contact-form">
                             <div class="contact-form-wrap">
                                 <h3 class="title">Envoyez un message</h3>
-                                <form action="#" method="POST">
+                                <form action="{{ route('messages.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <!-- Single Form Start -->
                                             <div class="single-form">
-                                                <input name="name" type="text" placeholder="Votre nom">
+                                                <input name="nom" type="text" placeholder="Votre nom">
                                             </div>
                                             <!-- Single Form End -->
                                         </div>
@@ -127,7 +125,7 @@
                                         <div class="col-sm-12">
                                             <!-- Single Form Start -->
                                             <div class="single-form">
-                                                <textarea name="message" placeholder="Ecris ton message"></textarea>
+                                                <textarea required name="message" placeholder="Ecris ton message *"></textarea>
                                             </div>
                                             <!-- Single Form End -->
                                         </div>
@@ -155,7 +153,7 @@
     <div class="section contact-map-section">
         <div class="contact-map-wrap">
             <iframe id="gmap_canvas"
-                src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                src="{{ $contact->map_cont }}"></iframe>
         </div>
     </div>
 

@@ -73,7 +73,7 @@
                             Nos clients</span></a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ Request::is('equipes') ? 'active' : '' }}" href="{{ url('equipes') }}"><span
+                    <a class="menu-link {{ Request::is('membres') ? 'active' : '' }}" href="{{ url('membres') }}"><span
                             class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                             class="menu-title">Équipes</span></a>
                 </div>
@@ -86,6 +86,11 @@
                     <a class="menu-link {{ Request::is('footer') ? 'active' : '' }}" href="{{ url('footer') }}"><span
                             class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                             class="menu-title">Footer</span></a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('realisation') ? 'active' : '' }}" href="{{ url('realisation') }}"><span
+                            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                            class="menu-title">Projets</span></a>
                 </div>
                 <br><br><br>
                 <div class="menu-item">

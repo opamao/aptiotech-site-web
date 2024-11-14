@@ -1,7 +1,7 @@
 @extends('admin.layouts.master', [
-    'titre' => 'Equipe',
-    'nomPage' => 'Nos équipes',
-    'descriPage' => 'Nos employés, notre combat',
+    'titre' => 'Projets',
+    'nomPage' => 'Nos projets',
+    'descriPage' => 'La liste de tous les projets que nous avons réalisés',
 ])
 
 @push('scripts')
@@ -22,7 +22,7 @@
                                 <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span
                                         class="path1"></span><span class="path2"></span></i>
                                 <input type="text" data-kt-user-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-13" placeholder="Chercher un membre" />
+                                    class="form-control form-control-solid w-250px ps-13" placeholder="Chercher projet" />
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@
 
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#kt_modal_add_user">
-                                    <i class="ki-duotone ki-plus fs-2"></i> Ajouter un membre
+                                    <i class="ki-duotone ki-plus fs-2"></i> Ajouter un projet
                                 </button>
                             </div>
                             <div class="d-flex justify-content-end align-items-center d-none"
@@ -81,7 +81,7 @@
                                 <div class="modal-dialog modal-dialog-centered mw-650px">
                                     <div class="modal-content">
                                         <div class="modal-header" id="kt_modal_add_user_header">
-                                            <h2 class="fw-bold">Ajout d'un membre</h2>
+                                            <h2 class="fw-bold">Ajout d'un projet</h2>
                                             <div class="btn btn-icon btn-sm btn-active-icon-primary"
                                                 data-kt-users-modal-action="close" data-bs-dismiss="modal">
                                                 <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
@@ -90,7 +90,7 @@
                                         </div>
 
                                         <div class="modal-body px-5 my-7">
-                                            <form class="form" action="{{ route('membres.store') }}" method="POST"
+                                            <form class="form" action="{{ route('realisation.store') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="d-flex flex-column scroll-y px-5 px-lg-10"
@@ -100,26 +100,15 @@
                                                     data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
                                                     data-kt-scroll-offset="300px">
                                                     <div class="fv-row mb-7">
-                                                        <label class="d-block fw-semibold fs-6 mb-5">Avatar (336 x 392
-                                                            px)</label>
-                                                        <style>
-                                                            .image-input-placeholder {
-                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image.svg');
-                                                            }
-
-                                                            [data-bs-theme="dark"] .image-input-placeholder {
-                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image-dark.svg');
-                                                            }
-                                                        </style>
                                                         <div class="image-input image-input-outline image-input-placeholder"
                                                             data-kt-image-input="true">
                                                             <div class="image-input-wrapper w-125px h-125px"
-                                                                style="background-image: url(https://preview.keenthemes.com/keen/demo3/assets/media/avatars/300-6.jpg);">
+                                                                style="background-image: url();">
                                                             </div>
                                                             <label
                                                                 class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                                                data-kt-image-input-action="change"
-                                                                data-bs-toggle="tooltip" title="Ajouter sa photo">
+                                                                data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                                title="Ajouter sa photo">
                                                                 <i class="ki-duotone ki-pencil fs-7"><span
                                                                         class="path1"></span><span
                                                                         class="path2"></span></i>
@@ -148,22 +137,15 @@
                                                             png, jpg, jpeg.</div>
                                                     </div>
                                                     <div class="fv-row mb-7">
-                                                        <label class="required fw-semibold fs-6 mb-2">Nom</label>
-                                                        <input required type="text" name="nom"
+                                                        <label class="required fw-semibold fs-6 mb-2">Libelle</label>
+                                                        <input required type="text" name="libelle"
                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="Son nom" />
+                                                            placeholder="Le titre du projet" />
                                                     </div>
                                                     <div class="fv-row mb-7">
-                                                        <label class="required fw-semibold fs-6 mb-2">Prénom</label>
-                                                        <input required type="text" name="prenom"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="Son prénom" />
-                                                    </div>
-                                                    <div class="fv-row mb-7">
-                                                        <label class="required fw-semibold fs-6 mb-2">Poste</label>
-                                                        <input required type="text" name="poste"
-                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                            placeholder="Poste occupé" />
+                                                        <label class="required fw-semibold fs-6 mb-2">Description</label>
+                                                        <textarea class="form-control form-control-solid mb-3 mb-lg-0" required placeholder="La description du projet"
+                                                            name="description" id="" cols="30" rows="10"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="text-center pt-10">
@@ -187,37 +169,34 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                             <thead>
                                 <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">Membre</th>
-                                    <th class="min-w-125px">Poste</th>
+                                    <th class="min-w-125px"></th>
                                     <th class="text-end min-w-100px"></th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
-                                @foreach ($equipes as $list)
+                                @foreach ($projets as $list)
                                     <tr>
                                         <td class="d-flex align-items-center">
                                             <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                                 <a href="#">
                                                     <div class="symbol-label">
-                                                        <img src="{{ asset('equipes') . '/' . $list->photo_equip }}"
+                                                        <img src="{{ asset('projets') . '/' . $list->photo_pro }}"
                                                             alt="Emma Smith" class="w-100" />
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <a href="#"
-                                                    class="text-gray-800 text-hover-primary mb-1">{{ $list->nom_equip }}
-                                                    {{ $list->prenom_equip }}</a>
+                                                    class="text-gray-800 text-hover-primary mb-1">{{ $list->libelle_pro }}</a>
                                             </div>
                                         </td>
-                                        <td>{{ $list->poste_equip }} </td>
                                         <td class="">
                                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#at_edit{{ $list->idequip }}">
+                                                data-bs-target="#at_edit{{ $list->idpro }}">
                                                 <i class="bi bi-pencil fs-1x text-dark">
                                                 </i>
                                             </button>
-                                            <div class="modal fade" id="at_edit{{ $list->idequip }}" tabindex="-1"
+                                            <div class="modal fade" id="at_edit{{ $list->idpro }}" tabindex="-1"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered mw-650px">
                                                     <div class="modal-content">
@@ -234,7 +213,7 @@
 
                                                         <div class="modal-body px-5 my-7">
                                                             <form class="form"
-                                                                action="{{ route('membres.update', $list->idequip) }}"
+                                                                action="{{ route('realisation.update', $list->idpro) }}"
                                                                 method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('PATCH')
@@ -246,23 +225,10 @@
                                                                     data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
                                                                     data-kt-scroll-offset="300px">
                                                                     <div class="fv-row mb-7">
-                                                                        <label class="d-block fw-semibold fs-6 mb-5">Avatar
-                                                                            (336 x 392
-                                                                            px)
-                                                                        </label>
-                                                                        <style>
-                                                                            .image-input-placeholder {
-                                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image.svg');
-                                                                            }
-
-                                                                            [data-bs-theme="dark"] .image-input-placeholder {
-                                                                                background-image: url('{{ asset('back') }}/assets/media/svg/files/blank-image-dark.svg');
-                                                                            }
-                                                                        </style>
                                                                         <div class="image-input image-input-outline image-input-placeholder"
                                                                             data-kt-image-input="true">
                                                                             <div class="image-input-wrapper w-125px h-125px"
-                                                                                style="background-image: url({{ asset('equipes') . '/' . $list->photo_equip }});">
+                                                                                style="background-image: url({{ asset('projets') . '/' . $list->photo_pro }});">
                                                                             </div>
                                                                             <label
                                                                                 class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
@@ -283,27 +249,17 @@
                                                                     </div>
                                                                     <div class="fv-row mb-7">
                                                                         <label
-                                                                            class="required fw-semibold fs-6 mb-2">Nom</label>
-                                                                        <input value="{{ $list->nom_equip }}" required
-                                                                            type="text" name="nom"
+                                                                            class="required fw-semibold fs-6 mb-2">Libelle</label>
+                                                                        <input value="{{ $list->libelle_pro }}" required
+                                                                            type="text" name="libelle"
                                                                             class="form-control form-control-solid mb-3 mb-lg-0"
-                                                                            placeholder="Son nom" />
+                                                                            placeholder="Le titre du projet" />
                                                                     </div>
                                                                     <div class="fv-row mb-7">
                                                                         <label
-                                                                            class="required fw-semibold fs-6 mb-2">Prénom</label>
-                                                                        <input value="{{ $list->prenom_equip }}" required
-                                                                            type="text" name="prenom"
-                                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                                            placeholder="Son prénom" />
-                                                                    </div>
-                                                                    <div class="fv-row mb-7">
-                                                                        <label
-                                                                            class="required fw-semibold fs-6 mb-2">Poste</label>
-                                                                        <input value="{{ $list->poste_equip }}" required
-                                                                            type="text" name="poste"
-                                                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                                                            placeholder="Poste occupé" />
+                                                                            class="required fw-semibold fs-6 mb-2">Description</label>
+                                                                        <textarea class="form-control form-control-solid mb-3 mb-lg-0" required placeholder="La description du projet"
+                                                                            name="description" id="" cols="30" rows="10">{{ $list->descripton_pro }}</textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="text-center pt-10">
@@ -321,11 +277,11 @@
                                                 </div>
                                             </div>
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#at_delete{{ $list->idequip }}">
+                                                data-bs-target="#at_delete{{ $list->idpro }}">
                                                 <i class="bi bi-trash fs-1x text-white">
                                                 </i>
                                             </button>
-                                            <div class="modal fade" id="at_delete{{ $list->idequip }}" tabindex="-1"
+                                            <div class="modal fade" id="at_delete{{ $list->idpro }}" tabindex="-1"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered mw-650px">
                                                     <div class="modal-content">
@@ -342,7 +298,7 @@
 
                                                         <div class="modal-body px-5 my-7">
                                                             <form class="form"
-                                                                action="{{ route('membres.destroy', $list->idequip) }}"
+                                                                action="{{ route('realisation.destroy', $list->idpro) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Messages;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
@@ -11,7 +12,9 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Messages::all();
+
+        return view('admin.contacts.message', compact('messages'));
     }
 
     /**
@@ -27,7 +30,29 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $roles = [
+            'phone' => '',
+            'nom' => '',
+            'email' => 'required',
+            'message' => 'required',
+        ];
+        $customMessages = [
+            'message.required' => "Veuillez entrer votre message",
+            'email.required' => "Veuillez saisir votre adresse e-mail",
+        ];
+        $request->validate($roles, $customMessages);
+
+        $equipe = new Messages();
+        $equipe->nom_mes = $request->nom;
+        $equipe->email_mes = $request->email;
+        $equipe->phone_mes = $request->phone;
+        $equipe->message_mes = $request->message;
+
+        if ($equipe->save()) {
+            return back()->with('succes',  "Votre message a été envoyé");
+        } else {
+            return back()->withErrors(["Impossible d'envoyer le message'. Veuillez réessayer!!"]);
+        }
     }
 
     /**
@@ -59,6 +84,8 @@ class MessagesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Messages::findOrFail($id)->delete();
+
+        return back()->with('succes', "La suppression a été effectué");
     }
 }

@@ -1,6 +1,12 @@
  <!-- Footer Section Start -->
  <div class="section footer-section" style="background-image: url(assets/images/bg/footer-bg.png);">
+     @php
+         use App\Models\Footer;
+         use App\Models\Contacts;
 
+         $address = Contacts::latest()->first();
+         $footers = Footer::all();
+     @endphp
      <div class="container">
          <!-- Footer Widget Wrap Start -->
          <div class="footer-widget-wrap">
@@ -17,7 +23,7 @@
                                      </div>
                                      <div class="info-text">
                                          <p class="label-name">Numéro de téléphone</p>
-                                         <span><a href="#">+225 05 85 83 16 47</a></span>
+                                         <span><a href="#">{{ $address->phone_cont }}</a></span>
                                      </div>
                                  </li>
                                  <li>
@@ -26,7 +32,7 @@
                                      </div>
                                      <div class="info-text">
                                          <p class="label-name">E-mail</p>
-                                         <span><a href="#">info@aptiotech.com</a></span>
+                                         <span><a href="#">{{ $address->email_cont }}</a></span>
                                      </div>
                                  </li>
                                  <li>
@@ -35,7 +41,7 @@
                                      </div>
                                      <div class="info-text">
                                          <p class="label-name">Adresse</p>
-                                         <span>Marcory résidentiel, radio zénith</span>
+                                         <span>{{ $address->local_cont }}</span>
                                      </div>
                                  </li>
                              </ul>
@@ -84,8 +90,10 @@
 
                          <div class="footer-social">
                              <ul class="social">
-                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                 @foreach ($footers as $ifoot)
+                                     <li><a href="{{ $ifoot->lien_foot }}"><i
+                                                 class="fab fa-{{ $ifoot->libelle_foot }}"></i></a></li>
+                                 @endforeach
                              </ul>
                          </div>
                      </div>

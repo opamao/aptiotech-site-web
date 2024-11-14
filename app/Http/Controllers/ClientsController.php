@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clients;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
@@ -11,7 +12,8 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Clients::all();
+        return view('admin.clients.clients', compact('clients'));
     }
 
     /**
@@ -27,7 +29,26 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $roles = [
+            'avatar' => 'required',
+        ];
+        $customMessages = [
+            'avatar.required' => "Vous devez sélectionner le client.",
+        ];
+        $request->validate($roles, $customMessages);
+
+        $fileLogoWithExtension = $request->file('avatar')->getClientOriginalName();
+        $imageLogo = 'client_web_' . time() . '_' . '.' . $fileLogoWithExtension;
+        $request->file('avatar')->move(public_path('/clients'), $imageLogo);
+
+        $client = new Clients();
+        $client->image_cli = $imageLogo;
+
+        if ($client->save()) {
+            return back()->with('succes',  "Le client a été ajoué");
+        } else {
+            return back()->withErrors(["Impossible d'ajouter le client'. Veuillez réessayer!!"]);
+        }
     }
 
     /**
@@ -59,6 +80,13 @@ class ClientsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $client = Clients::findOrFail($id);
+        $imagePath = public_path('clients/' . $client->image_cli);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+        $client->delete();
+
+        return back()->with('succes', "La suppression a été effectué");
     }
 }

@@ -30,7 +30,7 @@
                 <div class="app-navbar flex-shrink-0">
                     <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <div class="d-none d-md-block text-end me-4">
-                            <a href='logistics.html#' class="fs-6 fw-semibold text-white text-hover-primary">Théodore
+                            <a href='#' class="fs-6 fw-semibold text-white text-hover-primary">Théodore
                                 YAPI</a>
                             {{-- <span class="fs-7 fw-semibold text-gray-600 d-block">Ad Expert</span> --}}
                         </div>
@@ -53,7 +53,7 @@
                                             Théodore YAPI
                                         </div>
 
-                                        <a href="logistics.html#"
+                                        <a href="#"
                                             class="fw-semibold text-muted text-hover-primary fs-7">
                                             theodoreyapi@gmail.com </a>
                                     </div>
@@ -63,7 +63,7 @@
                             <div class="separator my-2"></div>
 
                             <div class="menu-item px-5">
-                                <a href="{{ url('profile') }}" class="menu-link px-5">
+                                <a href="#" class="menu-link px-5">
                                     Mon Profil
                                 </a>
                             </div>
@@ -72,7 +72,7 @@
 
                             <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                 data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                                <a href="logistics.html#" class="menu-link px-5">
+                                <a href="#" class="menu-link px-5">
                                     <span class="menu-title position-relative">
                                         Mode
 
@@ -91,7 +91,7 @@
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px"
                                     data-kt-menu="true" data-kt-element="theme-mode-menu">
                                     <div class="menu-item px-3 my-0">
-                                        <a href="logistics.html#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                        <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
                                             data-kt-value="light">
                                             <span class="menu-icon" data-kt-element="icon">
                                                 <i class="ki-duotone ki-night-day fs-2"><span
@@ -106,7 +106,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item px-3 my-0">
-                                        <a href="logistics.html#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                        <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
                                             data-kt-value="dark">
                                             <span class="menu-icon" data-kt-element="icon">
                                                 <i class="ki-duotone ki-moon fs-2"><span class="path1"></span><span
@@ -117,7 +117,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item px-3 my-0">
-                                        <a href="logistics.html#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                        <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
                                             data-kt-value="system">
                                             <span class="menu-icon" data-kt-element="icon">
                                                 <i class="ki-duotone ki-screen fs-2"><span class="path1"></span><span

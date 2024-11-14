@@ -57,31 +57,28 @@
             </div>
         </div>
     </div>
-    <!-- Subscribe End -->
 
-    <!-- Team Start -->
     <div class="section blusion-team-section blusion-team-section-02 section-padding">
         <div class="container">
-            <!-- Team Wrap Start -->
             <div class="team-wrap team-grid-wrap">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <!-- Single Team Start -->
-                        <div class="single-team-02">
-                            <div class="team-image">
-                                <a href="#"><img src="assets/images/team/team-5.jpg" alt="team"></a>
-                            </div>
-                            <div class="team-content">
-                                <h4 class="name"><a href="#">Théodore YAPI</a></h4>
-                                <p class="designation">Directeur Technique</p>
+                    @foreach ($equipe as $team)
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="single-team-02">
+                                <div class="team-image">
+                                    <a href="#"><img src="{{ asset('equipes') . '/' . $team->photo_equip }}"
+                                            alt="team"></a>
+                                </div>
+                                <div class="team-content">
+                                    <h4 class="name"><a href="#">{{ $team->nom_equip }}
+                                            {{ $team->prenom_equip }}</a></h4>
+                                    <p class="designation">{{ $team->poste_equip }}</p>
+                                </div>
                             </div>
                         </div>
-                        <!-- Single Team End -->
-                    </div>
+                    @endforeach
                 </div>
             </div>
-            <!-- Team Wrap End -->
         </div>
     </div>
-    <!-- Team End -->
 @endsection

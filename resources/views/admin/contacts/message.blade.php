@@ -1,7 +1,7 @@
 @extends('admin.layouts.master', [
     'titre' => 'Messages',
     'nomPage' => 'Messages',
-    'descriPage' => "Les différents messages depuis le site web",
+    'descriPage' => 'Les différents messages depuis le site web',
 ])
 
 @push('scripts')
@@ -11,6 +11,7 @@
 @endpush
 
 @section('content')
+    @include('admin.layouts.status')
     <div class="d-flex flex-column flex-column-fluid">
         <div id="kt_app_content" class="app-content  flex-column-fluid ">
             <div id="kt_app_content_container" class="app-container container-fluid ">
@@ -21,7 +22,7 @@
                                 <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span
                                         class="path1"></span><span class="path2"></span></i>
                                 <input type="text" data-kt-user-table-filter="search"
-                                    class="form-control form-control-solid w-250px ps-13" placeholder="Chercher slide" />
+                                    class="form-control form-control-solid w-250px ps-13" placeholder="Chercher message" />
                             </div>
                         </div>
 
@@ -84,148 +85,160 @@
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
-                                <tr>
-                                    <td>
-                                        Yapi </td>
-                                    <td>
-                                        <div class="badge badge-light fw-bold">info@aptiotech.com</div>
-                                    </td>
-                                    <td>0710848785</td>
-                                    <td class="">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#at_view">
-                                            <i class="bi bi-eye fs-1x text-white">
-                                            </i>
-                                        </button>
-                                        <div class="modal fade" id="at_view" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered mw-650px">
-                                                <div class="modal-content">
-                                                    <div class="modal-header" id="kt_modal_add_user_header">
-                                                        <h2 class="fw-bold">Détails</h2>
-                                                        <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                                            data-kt-users-modal-action="close" data-bs-dismiss="modal">
-                                                            <i class="ki-duotone ki-cross fs-1"><span
-                                                                    class="path1"></span><span class="path2"></span></i>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="modal-body px-5 my-7">
-                                                        <div class="d-flex flex-column scroll-y px-5 px-lg-10"
-                                                            id="kt_modal_add_user_scroll" data-kt-scroll="true"
-                                                            data-kt-scroll-activate="true"
-                                                            data-kt-scroll-max-height="auto"
-                                                            data-kt-scroll-dependencies="#kt_modal_add_user_header"
-                                                            data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
-                                                            data-kt-scroll-offset="300px">
-                                                            <div class="row g-5 g-lg-9">
-                                                                <div class="col-6">
-                                                                    <div class="card card-shadow">
-                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                                            <i
-                                                                                class="bi bi-person fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
-                                                                            <div class="fw-bold fs-5 pt-4">
-                                                                                Nom </div>
-                                                                            <span>Subscriptions</span>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <div class="card card-shadow">
-                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                                            <i
-                                                                                class="bi bi-send fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
-                                                                            <div class="fw-bold fs-5 pt-4">
-                                                                                E-mail </div>
-                                                                            <span>Subscriptions</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <div class="card card-shadow">
-                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                                            <i
-                                                                                class="bi bi-phone fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
-                                                                            <div class="fw-bold fs-5 pt-4">
-                                                                                Téléphone </div>
-                                                                            <span>Subscriptions</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <div class="card card-shadow">
-                                                                        <div class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
-                                                                            <i
-                                                                                class="bi bi-envelope fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
-
-                                                                            <div class="fw-bold fs-5 pt-4">
-                                                                                Message </div>
-                                                                            <span>Subscriptions</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                @foreach ($messages as $list)
+                                    <tr>
+                                        <td>{{ $list->nom_mes }}</td>
+                                        <td>
+                                            <div class="badge badge-light fw-bold">{{ $list->email_mes }}</div>
+                                        </td>
+                                        <td>{{ $list->phone_mes }}</td>
+                                        <td class="">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#at_view{{ $list->idmes }}">
+                                                <i class="bi bi-eye fs-1x text-white">
+                                                </i>
+                                            </button>
+                                            <div class="modal fade" id="at_view{{ $list->idmes }}" tabindex="-1"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered mw-650px">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header" id="kt_modal_add_user_header">
+                                                            <h2 class="fw-bold">Détails</h2>
+                                                            <div class="btn btn-icon btn-sm btn-active-icon-primary"
+                                                                data-kt-users-modal-action="close" data-bs-dismiss="modal">
+                                                                <i class="ki-duotone ki-cross fs-1"><span
+                                                                        class="path1"></span><span
+                                                                        class="path2"></span></i>
                                                             </div>
                                                         </div>
-                                                        <div class="text-center pt-10">
-                                                            <button type="reset" class="btn btn-light me-3"
-                                                                data-bs-dismiss="modal">
-                                                                Compris
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#at_delete">
-                                            <i class="bi bi-trash fs-1x text-white">
-                                            </i>
-                                        </button>
-                                        <div class="modal fade" id="at_delete" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered mw-650px">
-                                                <div class="modal-content">
-                                                    <div class="modal-header" id="at_delete">
-                                                        <h2 class="fw-bold text-danger">Suppression</h2>
-                                                        <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                                            data-kt-users-modal-action="close" data-bs-dismiss="modal">
-                                                            <i class="ki-duotone ki-cross fs-1" style="color: red"><span
-                                                                    class="path1"></span><span class="path2"></span></i>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="modal-body px-5 my-7">
-                                                        <form class="form" action="#" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
+                                                        <div class="modal-body px-5 my-7">
                                                             <div class="d-flex flex-column scroll-y px-5 px-lg-10"
                                                                 id="kt_modal_add_user_scroll" data-kt-scroll="true"
                                                                 data-kt-scroll-activate="true"
                                                                 data-kt-scroll-max-height="auto"
+                                                                data-kt-scroll-dependencies="#kt_modal_add_user_header"
+                                                                data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
                                                                 data-kt-scroll-offset="300px">
-                                                                <div class="fv-row mb-7">
-                                                                    <h3 class="text-primary">Êtes-vous sûr de vouloir
-                                                                        supprimer ?</h3>
+                                                                <div class="row g-5 g-lg-9">
+                                                                    <div class="col-6">
+                                                                        <div class="card card-shadow">
+                                                                            <div
+                                                                                class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                                                                <i
+                                                                                    class="bi bi-person fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
+
+                                                                                <div class="fw-bold fs-5 pt-4">
+                                                                                    Nom </div>
+                                                                                <span>{{ $list->nom_mes }}</span>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="card card-shadow">
+                                                                            <div
+                                                                                class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                                                                <i
+                                                                                    class="bi bi-send fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
+
+                                                                                <div class="fw-bold fs-5 pt-4">
+                                                                                    E-mail </div>
+                                                                                <span>{{ $list->email_mes }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="card card-shadow">
+                                                                            <div
+                                                                                class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                                                                <i
+                                                                                    class="bi bi-phone fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
+
+                                                                                <div class="fw-bold fs-5 pt-4">
+                                                                                    Téléphone </div>
+                                                                                <span>{{ $list->phone_mes }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <div class="card card-shadow">
+                                                                            <div
+                                                                                class="card-body bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+                                                                                <i
+                                                                                    class="bi bi-envelope fs-2x fs-lg-2hx text-gray-500 ms-n1"></i>
+
+                                                                                <div class="fw-bold fs-5 pt-4">
+                                                                                    Message </div>
+                                                                                <span>{{ $list->message_mes }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="text-center pt-10">
                                                                 <button type="reset" class="btn btn-light me-3"
                                                                     data-bs-dismiss="modal">
-                                                                    Annuler
-                                                                </button>
-                                                                <button type="submit" class="btn btn-danger">
-                                                                    Supprimer
+                                                                    Compris
                                                                 </button>
                                                             </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#at_delete{{ $list->idmes }}">
+                                                <i class="bi bi-trash fs-1x text-white">
+                                                </i>
+                                            </button>
+                                            <div class="modal fade" id="at_delete{{ $list->idmes }}" tabindex="-1"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered mw-650px">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header" id="at_delete">
+                                                            <h2 class="fw-bold text-danger">Suppression</h2>
+                                                            <div class="btn btn-icon btn-sm btn-active-icon-primary"
+                                                                data-kt-users-modal-action="close"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="ki-duotone ki-cross fs-1"
+                                                                    style="color: red"><span class="path1"></span><span
+                                                                        class="path2"></span></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal-body px-5 my-7">
+                                                            <form class="form"
+                                                                action="{{ route('messages.destroy', $list->idmes) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <div class="d-flex flex-column scroll-y px-5 px-lg-10"
+                                                                    id="kt_modal_add_user_scroll" data-kt-scroll="true"
+                                                                    data-kt-scroll-activate="true"
+                                                                    data-kt-scroll-max-height="auto"
+                                                                    data-kt-scroll-offset="300px">
+                                                                    <div class="fv-row mb-7">
+                                                                        <h3 class="text-primary">Êtes-vous sûr de vouloir
+                                                                            supprimer ?</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-center pt-10">
+                                                                    <button type="reset" class="btn btn-light me-3"
+                                                                        data-bs-dismiss="modal">
+                                                                        Annuler
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-danger">
+                                                                        Supprimer
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class FooterController extends Controller
@@ -11,7 +12,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        $footer = Footer::all();
+        return view('admin.footer.footer', compact('footer'));
     }
 
     /**
@@ -27,7 +29,25 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $roles = [
+            'libelle' => 'required',
+            'lien' => 'required',
+        ];
+        $customMessages = [
+            'libelle.required' => "Le libelle est obligatoire.",
+            'lien.required' => "Le lien est obligatoire.",
+        ];
+        $request->validate($roles, $customMessages);
+
+        $contact = new Footer();
+        $contact->libelle_foot = $request->libelle;
+        $contact->lien_foot = $request->lien;
+
+        if ($contact->save()) {
+            return back()->with('succes',  "Le lien a été ajoué");
+        } else {
+            return back()->withErrors(["Impossible d'ajouter le slide'. Veuillez réessayer!!"]);
+        }
     }
 
     /**
@@ -51,7 +71,23 @@ class FooterController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $roles = [
+            'libelle' => 'required',
+            'lien' => 'required',
+        ];
+        $customMessages = [
+            'libelle.required' => "Le libelle est obligatoire.",
+            'lien.required' => "Le lien est obligatoire.",
+        ];
+        $request->validate($roles, $customMessages);
+
+        Footer::where('idfoot', $id)
+            ->update([
+                'libelle_foot' => $request->libelle,
+                'lien_foot' => $request->lien,
+            ]);
+
+        return back()->with('succes', "La modification a été effectué");
     }
 
     /**
@@ -59,6 +95,8 @@ class FooterController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Footer::findOrFail($id)->delete();
+
+        return back()->with('succes', "La suppression a été effectué");
     }
 }

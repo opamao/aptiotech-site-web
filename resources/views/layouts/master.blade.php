@@ -11,9 +11,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('') }}assets/images/favicon.png">
 
-    <!-- CSS
- ============================================ -->
-
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{ asset('') }}assets/css/plugins/all.min.css">
     <link rel="stylesheet" href="{{ asset('') }}assets/css/plugins/flaticon.css">
@@ -28,11 +25,6 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('') }}assets/css/style.css">
-
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-    <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
-    <link rel="stylesheet" href="assets/css/style.min.css"> -->
 
 </head>
 

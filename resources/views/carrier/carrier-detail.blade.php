@@ -27,6 +27,8 @@
     </div>
     <!-- Page Banner End -->
 
+    @include('layouts.status')
+
     <div class="section blusion-about-section-02 section-padding-02">
         <div class="container">
             <div style="border: groove;border-radius: 10px;padding: 20px;">
@@ -48,7 +50,8 @@
                 En tant que nouveau membre de notre équipe, vous contribuerez à la création des interfaces, des
                 comportements, de l'architecture et de la qualité du code d'applications Web et mobiles haut de gamme. Vous
                 suivrez les projets des clients nouveaux et existants du début à la fin tout en travaillant en étroite
-                collaboration avec ces clients ainsi qu'avec votre équipe. Chez AptioTech, la programmation en groupe est une
+                collaboration avec ces clients ainsi qu'avec votre équipe. Chez AptioTech, la programmation en groupe est
+                une
                 grande partie de nos processus et de notre façon de travailler. Vous travaillerez quotidiennement avec
                 d'autres développeurs de notre équipe pour produire du code propre avec efficacité et finesse. En tant que
                 société de conseil en logiciels spécialisée dans PHP et JavaScript, nous recherchons une personne ayant de
@@ -89,7 +92,8 @@
                 <li>Connaissance approfondie des composants back-end et du développement front-end</li>
                 <li>Expérience en composition d'interfaces, gestion d'état, bon sens du design</li>
                 <li>Capacité à comprendre et à prendre en compte les besoins des utilisateurs</li>
-                <li>Ingéniosité, initiative et capacité à résoudre les problèmes grâce à des solutions élégantes et innovantes</li>
+                <li>Ingéniosité, initiative et capacité à résoudre les problèmes grâce à des solutions élégantes et
+                    innovantes</li>
                 <li>Dévouement à la production d'un travail de qualité démontré tout au long du cycle de développement</li>
                 <li>Solides compétences interpersonnelles et de communication</li>
                 <li>Capacité à travailler en équipe</li>
@@ -102,70 +106,56 @@
                 <li>Expérience avec les technologies de conteneurs et l'orchestration ; Docker, Kubernetes, etc.</li>
                 <li>Compréhension des problèmes de performance et d'évolutivité dans les applications</li>
                 <li>Expérience de travail avec des systèmes distribués</li>
-                <li>Un membre actif de la communauté ; défenseur des développeurs dans les communautés en ligne et locales</li>
-                <li>Capacité à diriger et à participer aux réunions clients en agissant en tant que chef de projet et porte-parole de l'équipe de développement</li>
+                <li>Un membre actif de la communauté ; défenseur des développeurs dans les communautés en ligne et locales
+                </li>
+                <li>Capacité à diriger et à participer aux réunions clients en agissant en tant que chef de projet et
+                    porte-parole de l'équipe de développement</li>
             </p>
             <br><br>
-            @include('layouts.status')
-            <form action="#" method="POST">
+            <form action="{{ route('candidature.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
-                        <input required name="name" type="text" placeholder="Votre nom *">
+                        <input required name="nom" type="text" placeholder="Votre nom *">
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <br>
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
                         <input name="email" required type="email" placeholder="E-mail *">
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <br>
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
                         <input type="text" name="github" placeholder="Github">
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <br>
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
                         <input type="text" name="linkedin" placeholder="LinkedIn">
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <br>
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
                         <label for="cv">Votre CV *</label>
                         <input required id="cv" type="file" name="cv" placeholder="cv">
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <br>
                 <div class="col-sm-6">
-                    <!-- Single Form Start -->
                     <div class="single-form">
                         <textarea name="message" placeholder="Message"></textarea>
                     </div>
-                    <!-- Single Form End -->
                 </div>
                 <div class="col-sm-6">
-                    <!--  Single Form Start -->
                     <div class="form-btn">
                         <button class="btn" type="submit">Soumettre</button>
                     </div>
-                    <!--  Single Form End -->
                 </div>
             </form>
         </div>
     </div>
-    <!-- Subscribe End -->
 @endsection
